@@ -14,6 +14,10 @@ public class Writer {
         this.books = new ArrayList<>();
     }
 
+    public void addBook(Book book) {
+        books.add(book);
+    }
+
     public int getWriterId() {
         return writerId;
     }
@@ -22,12 +26,20 @@ public class Writer {
         return writerName;
     }
 
+    public List<Book> getBooks() {
+        return books;
+    }
+
     @Override
     public String toString() {
+        StringBuilder bookNames = new StringBuilder();
+        for (Book book : books) {
+            bookNames.append(book.getBookName()).append(", ");
+        }
         return "Writer{" +
                 "writerId=" + writerId +
                 ", writerName='" + writerName + '\'' +
-                ", books=" + books +
+                ", books=" + bookNames.toString() +
                 '}';
     }
 

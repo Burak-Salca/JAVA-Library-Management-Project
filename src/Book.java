@@ -14,46 +14,35 @@ public class Book {
         this.writer = writer;
         this.catetory = catetory;
         this.status = status;
+
+        if (this.catetory != null) {
+            this.catetory.addBook(this);
+        }
+
+        if (this.writer != null) {
+            this.writer.addBook(this);
+        }
+
     }
 
     public int getBookId() {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
-    }
-
     public String getBookName() {
         return bookName;
-    }
-
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
     }
 
     public Writer getWriter() {
         return writer;
     }
 
-    public void setWriter(Writer writer) {
-        this.writer = writer;
-    }
-
     public Category getCatetory() {
         return catetory;
     }
 
-    public void setCatetory(Category catetory) {
-        this.catetory = catetory;
-    }
-
     public Status getStatus() {
         return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
     }
 
     @Override

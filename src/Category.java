@@ -14,6 +14,10 @@ public class Category {
         this.books = new ArrayList<>();
     }
 
+    public void addBook(Book book) {
+        books.add(book);
+    }
+
     public int getCategoryId() {
         return categoryId;
     }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -7,7 +8,7 @@ public class Member extends People{
 
     public Member(int id, String name, List<Book> books) {
         super(id, name);
-        this.books = books;
+        this.books = new ArrayList<>();
     }
 
     public List<Book> returnBook() {
@@ -22,9 +23,6 @@ public class Member extends People{
         return books;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
 
     @Override
     public String toString() {
