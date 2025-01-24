@@ -1,8 +1,11 @@
+package Users;
+
+import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Member extends People{
+public class Member extends People {
 
     private List<Book> books;
 
@@ -26,7 +29,7 @@ public class Member extends People{
 
     @Override
     public String toString() {
-        return "Member{" +
+        return "Users.Member{" +
                 "books=" + books +
                 '}';
     }

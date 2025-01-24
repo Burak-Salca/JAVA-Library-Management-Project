@@ -1,3 +1,5 @@
+package Users;
+
 import java.util.Objects;
 
 public class People {
@@ -41,7 +43,7 @@ public class People {
 
     @Override
     public String toString() {
-        return "People{" +
+        return "Users.People{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
