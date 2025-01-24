@@ -42,7 +42,7 @@ public class Main {
 
         System.out.println("***************************************");
         //Yazara göre kitap arama
-        admin1.findBookByWriter(library, writer1.getWriterName());
+        admin1.findBooksByWriter(library, writer1.getWriterName());
         System.out.println("***************************************");
         //Kategoriye göre kitap arama
         admin1.findBooksByCategory(library, category1.getCategoryName());

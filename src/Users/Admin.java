@@ -65,7 +65,7 @@ public class Admin extends People implements AdminOperations {
     }
 
     @Override
-    public List<Book> findBookByWriter(Library library, String writerName) {
+    public List<Book> findBooksByWriter(Library library, String writerName) {
         List<Book> booksByWriter = new ArrayList<>();
         for (Book book : library.getBooks()) {
             if (book.getWriter().getWriterName().equalsIgnoreCase(writerName)) {
