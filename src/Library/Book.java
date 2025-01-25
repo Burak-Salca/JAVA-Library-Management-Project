@@ -7,33 +7,16 @@ public class Book {
 
     private int bookId;
     private String bookName;
-    private Writer writer;
-    private Category category;
+    private String author;  //
+    private String category;
     private Status status;
-    private static final Set<Integer> usedIds = new HashSet<>();
 
-    public Book(int bookId, String bookName, Writer writer, Category category, Status status) {
-        if (!usedIds.add(bookId)) {
-            throw new IllegalArgumentException("Bu ID'ye sahip bir kitap zaten mevcut: " + bookId);
-        }
+    public Book(int bookId,String bookName, String author, String category, Status status) {
         this.bookId = bookId;
         this.bookName = bookName;
-        this.writer = writer;
+        this.author = author;
         this.category = category;
         this.status = status;
-
-        writer.addBook(this);
-        category.addBook(this);
-    }
-
-    public Book(String bookName, Writer writer, Category category, Status status) {
-        this.bookName = bookName;
-        this.writer = writer;
-        this.category = category;
-        this.status = status;
-
-        writer.addBook(this);
-        category.addBook(this);
     }
 
     public int getBookId() {
@@ -44,11 +27,11 @@ public class Book {
         return bookName;
     }
 
-    public Writer getWriter() {
-        return writer;
+    public String getAuthor() {
+        return author;
     }
 
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
 
@@ -56,30 +39,16 @@ public class Book {
         return status;
     }
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
-    }
-
-    public void setWriter(Writer writer) {
-        this.writer = writer;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
     @Override
     public String toString() {
         return "Book{" +
                 "bookId=" + bookId +
                 ", bookName='" + bookName + '\'' +
-                ", writer=" + writer +
+                ", writer=" + author +
                 ", category=" + category +
                 ", status=" + status +
                 '}';
     }
+
+
 }
