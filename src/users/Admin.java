@@ -8,8 +8,8 @@ import operations.AdminOperations;
 public class Admin extends Guest implements AdminOperations {
 
 
-    public Admin(int id, String name, Library library) {
-        super(id, name, library);
+    public Admin(String name, Library library) {
+        super(name, library);
     }
 
     @Override

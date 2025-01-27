@@ -11,8 +11,8 @@ import java.util.List;
 public class Guest extends Person implements GuestOperations{
 
 
-    public Guest(int id, String name, Library library) {
-        super(id, name, library);
+    public Guest( String name, Library library) {
+        super( name, library);
     }
 
     //Id ile search etme

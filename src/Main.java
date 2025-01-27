@@ -1,5 +1,6 @@
 import library.*;
 import users.Admin;
+import users.Guest;
 import users.Member;
 
 import java.util.Map;
@@ -20,9 +21,9 @@ public class Main {
 
 
         //Kütüphane görevlisi kaydı yapıldı
-        Admin admin1 = new Admin(1,"admin1",library);
-        Member member1 = new Member(1,"member1",library,10000);
-        Member member2 = new Member(2,"member2",library,10000);
+        Admin admin1 = new Admin("admin1",library);
+        Member member1 = new Member("member1",library,10000);
+        Member member2 = new Member("member2",library,10000);
 
         //Kitaplar kütüpahane sistemine eklenmesi-çıkarılması-güncellenmesi
         admin1.addBookToLibrary(library,book1);

@@ -6,12 +6,13 @@ import java.util.Objects;
 
 public class Person {
 
+    private static int idCounter = 1;
     private int id;
     private String name;
     private Library library;
 
-    public Person(int id, String name, Library library) {
-        this.id = id;
+    public Person( String name, Library library) {
+        this.id = idCounter++;
         this.name = name;
         this.library = library;
     }

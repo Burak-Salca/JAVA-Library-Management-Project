@@ -14,8 +14,8 @@ public class Member extends Guest implements MemberOperations {
     private List<Book> borrowedBooks;
 
 
-    public Member(int id, String name, Library library, double budget) {
-        super(id, name, library);
+    public Member(String name, Library library, double budget) {
+        super(name, library);
         this.budget = budget;
         this.borrowedBooks = new ArrayList<>();
     }
