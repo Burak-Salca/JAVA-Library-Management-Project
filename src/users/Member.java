@@ -2,6 +2,7 @@ package users;
 
 import library.Library;
 import library.Book;
+import library.Receipt;
 import operations.MemberOperations;
 
 import java.util.ArrayList;
@@ -12,7 +13,8 @@ public class Member extends Guest implements MemberOperations {
     private double budget;
     private List<Book> borrowedBooks;
 
-    public Member(int id, String name, Library library, double budget, List<Book> borrowedBooks) {
+
+    public Member(int id, String name, Library library, double budget) {
         super(id, name, library);
         this.budget = budget;
         this.borrowedBooks = new ArrayList<>();
@@ -34,6 +36,10 @@ public class Member extends Guest implements MemberOperations {
             borrowedBooks.add(bookToBorrow);
             getLibrary().getBorrowedBooks().put(bookToBorrow, this);
             budget -= bookToBorrow.getPrice();
+            //Fiş oluşturma
+            Receipt receipt = new Receipt(bookToBorrow, bookToBorrow.getPrice(),this);
+            getLibrary().getReceipts().add(receipt);
+            System.out.println("Ödünç işlemi başarılı! Fiş:\n " + receipt);
             System.out.println(getName() + " adlı üye " + bookToBorrow.getBookName() + " kitabını ödünç aldı.");
         }
     }
@@ -55,6 +61,18 @@ public class Member extends Guest implements MemberOperations {
             borrowedBooks.remove(bookToReturn);
             getLibrary().getBorrowedBooks().remove(bookToReturn, this);
             budget += bookToReturn.getPrice();
+            //Fişin geri iade edilmesi
+            Receipt receiptToRemove = null;
+            for (Receipt receipt : getLibrary().getReceipts()) {
+                if (receipt.getBorrowedBook().equals(bookToReturn) && receipt.getMember().equals(this)) {
+                    receiptToRemove = receipt;
+                    break;
+                }
+            }
+
+            if (receiptToRemove != null) {
+                getLibrary().getReceipts().remove(receiptToRemove);
+            }
             System.out.println(getName() + " adlı üye " + bookToReturn.getBookName() + " kitabını geri verdi.");
         }
     }

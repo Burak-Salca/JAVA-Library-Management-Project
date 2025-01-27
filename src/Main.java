@@ -21,8 +21,8 @@ public class Main {
 
         //Kütüphane görevlisi kaydı yapıldı
         Admin admin1 = new Admin(1,"admin1",library);
-        Member member1 = new Member(1,"member1",library,10000,null);
-        Member member2 = new Member(2,"member2",library,10000,null);
+        Member member1 = new Member(1,"member1",library,10000);
+        Member member2 = new Member(2,"member2",library,10000);
 
         //Kitaplar kütüpahane sistemine eklenmesi-çıkarılması-güncellenmesi
         admin1.addBookToLibrary(library,book1);
@@ -40,7 +40,7 @@ public class Main {
         member1.borrowBook(2);
         member2.borrowBook(3);
         member1.returnBook(1);
-        
+
         System.out.println("\n***************************************");
         System.out.println("Ödünç alınan kitaplar:");
         for (Map.Entry<Book, Member> entry : library.getBorrowedBooks().entrySet()) {

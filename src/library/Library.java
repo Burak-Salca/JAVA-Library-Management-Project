@@ -10,12 +10,14 @@ public class Library {
     private Set<String> categories;
     private List<Book> books;
     private Map<Book, Member> borrowedBooks;
+    private List<Receipt> receipts;
 
     public Library() {
         this.books = new ArrayList<>();
         authors = new HashSet<>();
         categories = new HashSet<>();
         borrowedBooks = new HashMap<>();
+        receipts = new ArrayList<>();
     }
 
     public Set<String> getAuthors() {
@@ -34,6 +36,10 @@ public class Library {
         return borrowedBooks;
     }
 
+    public List<Receipt> getReceipts() {
+        return receipts;
+    }
+
     @Override
     public String toString() {
         return "Library{" +
@@ -41,6 +47,7 @@ public class Library {
                 ", categories=" + categories +
                 ", books=" + books +
                 ", borrowedBooks=" + borrowedBooks +
+                ", receipts=" + receipts +
                 '}';
     }
 }
