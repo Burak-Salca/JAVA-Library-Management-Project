@@ -4,25 +4,32 @@ public class Book {
 
     private int bookId;
     private String bookName;
+    private double price;
     private String author;  //
     private String category;
     private boolean status= true;
 
-    public Book(int bookId,String bookName, String author, String category) {
+    public Book(int bookId,String bookName, double price, String author, String category) {
         this.bookId = bookId;
         this.bookName = bookName;
+        this.price = price;
         this.author = author;
         this.category = category;
-
     }
 
     //Update fonksiyonu için böyle bi constructor tanımladık
-    public Book(String bookName, String author, String category) {
+    public Book(String bookName, double price, String author, String category) {
         this.bookName = bookName;
+        this.price = price;
         this.author = author;
         this.category = category;
     }
-
+    public double getPrice() {
+        return price;
+    }
+    public void setPrice(double price) {
+        this.price = price;
+    }
     public int getBookId() {
         return bookId;
     }
@@ -64,10 +71,10 @@ public class Book {
         return "Book{" +
                 "bookId=" + bookId +
                 ", bookName='" + bookName + '\'' +
-                ", author=" + author +
-                ", category=" + category +
+                ", price=" + price +
+                ", author='" + author + '\'' +
+                ", category='" + category + '\'' +
                 ", status=" + status +
                 '}';
     }
-
 }
