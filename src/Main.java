@@ -1,8 +1,5 @@
-import Library.*;
-import Users.Admin;
-
-import java.util.ArrayList;
-import java.util.Map;
+import library.*;
+import users.Admin;
 
 
 public class Main {
@@ -12,23 +9,28 @@ public class Main {
         Library library = new Library();
 
         //Kitaplar getirildi
-        Book book1 = new Book(1,"book1","Ahmet Ümit","Polisiye", Status.AVAILABLE);
-        Book book2 = new Book(2,"book2","Lütfü Livaneli","Polisiye",Status.AVAILABLE);
-        Book book3 = new Book(3,"book3","Mehmet Akif Ersoy","Edebiyat",Status.AVAILABLE);
-        Book book4 = new Book(4,"book4","Atatürk","Makale",Status.AVAILABLE);
-        Book bookDuplicate = new Book(1,"bookDuplicate", "Author One", "Category One", Status.AVAILABLE);
+        Book book1 = new Book(1,"book1","Ahmet Ümit","Polisiye");
+        Book book2 = new Book(2,"book2","Lütfü Livaneli","Polisiye");
+        Book book3 = new Book(3,"book3","Namık Kemal","Edebiyat");
+        Book book4 = new Book(4,"book4","Atatürk","Söylev");
+        Book bookDuplicate = new Book(1,"bookDuplicate", "Author One", "Category One");
+
 
         //Kütüphane görevlisi kaydı yapıldı
         Admin admin1 = new Admin(1,"admin1",library);
 
-        //Kitaplar kütüpahane sistemine kayıt edildi
+        //Kitaplar kütüpahane sistemine eklenmesi-çıkarılması-güncellenmesi
         admin1.addBookToLibrary(library,book1);
         admin1.addBookToLibrary(library,book2);
         admin1.addBookToLibrary(library,book3);
         admin1.addBookToLibrary(library,book4);
         admin1.addBookToLibrary(library, bookDuplicate);
-        admin1.removeBookFromLibrary(library,book3.getBookId());
-        admin1.removeBookFromLibrary(library,book2.getBookId());
+        //admin1.removeBookFromLibrary(library,book3.getBookId());
+        //admin1.removeBookFromLibrary(library,book2.getBookId());
+        admin1.updateBookInfo(library, book3.getBookId(), new Book("updatedBook3","Cemal Süreyya","Şiir"));
+        //admin1.removeBookFromLibrary(library,book3.getBookId());
+        admin1.findBookById(library,1);
+        admin1.findBooksByCategory(library,"polisiye");
 
         System.out.println("\n***************************************");
         //Kütüphanedeki kitaplar
@@ -48,6 +50,8 @@ public class Main {
         for (String author : library.getAuthors()) {
             System.out.println(author);
         }
+        System.out.println("\n***************************************");
+        //Admin
         /*İstenilen kitaplar güncellendi
         admin1.updateBookInfo(2,new Book("updatedBook2",writer2,category2,Status.AVAILABLE));
         admin1.updateBookInfo(99,book2);

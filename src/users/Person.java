@@ -1,15 +1,19 @@
-package Users;
+package users;
+
+import library.Library;
 
 import java.util.Objects;
 
-public class People {
+public class Person {
 
     private int id;
     private String name;
+    private Library library;
 
-    public People(int id, String name) {
+    public Person(int id, String name, Library library) {
         this.id = id;
         this.name = name;
+        this.library = library;
     }
 
     public int getId() {
@@ -28,24 +32,33 @@ public class People {
         this.name = name;
     }
 
+    public Library getLibrary() {
+        return library;
+    }
+
+    public void setLibrary(Library library) {
+        this.library = library;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        People people = (People) o;
-        return id == people.id && Objects.equals(name, people.name);
+        Person person = (Person) o;
+        return id == person.id && Objects.equals(name, person.name) && Objects.equals(library, person.library);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, name, library);
     }
 
     @Override
     public String toString() {
-        return "Users.People{" +
+        return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", library=" + library +
                 '}';
     }
 }

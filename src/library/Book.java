@@ -1,7 +1,4 @@
-package Library;
-
-import java.util.HashSet;
-import java.util.Set;
+package library;
 
 public class Book {
 
@@ -9,14 +6,21 @@ public class Book {
     private String bookName;
     private String author;  //
     private String category;
-    private Status status;
+    private boolean status= true;
 
-    public Book(int bookId,String bookName, String author, String category, Status status) {
+    public Book(int bookId,String bookName, String author, String category) {
         this.bookId = bookId;
         this.bookName = bookName;
         this.author = author;
         this.category = category;
-        this.status = status;
+
+    }
+
+    //Update fonksiyonu için böyle bi constructor tanımladık
+    public Book(String bookName, String author, String category) {
+        this.bookName = bookName;
+        this.author = author;
+        this.category = category;
     }
 
     public int getBookId() {
@@ -35,8 +39,24 @@ public class Book {
         return category;
     }
 
-    public Status getStatus() {
+    public boolean getStatus() {
         return status;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     @Override
@@ -44,11 +64,10 @@ public class Book {
         return "Book{" +
                 "bookId=" + bookId +
                 ", bookName='" + bookName + '\'' +
-                ", writer=" + author +
+                ", author=" + author +
                 ", category=" + category +
                 ", status=" + status +
                 '}';
     }
-
 
 }
