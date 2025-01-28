@@ -4,6 +4,7 @@ import users.Guest;
 import users.Member;
 import users.Person;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 
