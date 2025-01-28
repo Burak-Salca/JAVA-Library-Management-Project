@@ -3,7 +3,7 @@
 ## 🚀 Proje Tanımı
 Bu proje, kullanıcıların bir kütüphane sistemi üzerinden kitapları aramasını, ödünç almasını ve iade etmesini sağlayan bir **kütüphane yönetim sistemidir**. Ayrıca, **admin** kullanıcıları kitap ekleme, silme ve güncelleme gibi yönetimsel işlemler yapabilirler. Proje, kullanıcıların farklı rollerle (Misafir, Üye, Admin) farklı yetkilerle işlem yapabilmesini sağlar.
 
-![Kütüphane Yönetim Sistemi Tablosu]("C:\Users\Burak Salça\Downloads\JAVA-Library-Management-Project-Chart.png")
+![Kütüphane Yönetim Sistemi Tablosu](img.png)
 
 ## 🔧 Sistemde Yapılabilecekler
 
