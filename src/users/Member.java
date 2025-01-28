@@ -24,13 +24,13 @@ public class Member extends Guest implements MemberOperations {
     public void borrowBook(int bookId) {
         Book bookToBorrow = findBookById(getLibrary(),bookId);
         if (bookToBorrow == null) {
-            System.out.println("Kitap bulunamadı.");
+            System.out.println("Kitap bulunamadı.\n");
         } else if (!bookToBorrow.getStatus()) {
-            System.out.println("Kitap müsait değil.");
+            System.out.println("Kitap müsait değil.\n");
         } else if (budget < bookToBorrow.getPrice()) {
-            System.out.println("Yeterli bütçeniz yok.");
+            System.out.println("Yeterli bütçeniz yok.\n");
         } else if (borrowedBooks.size() >= 5) {
-            System.out.println("Kitap limiti aşıldı! En fazla 5 kitap ödünç alabilirsiniz.");
+            System.out.println("Kitap limiti aşıldı! En fazla 5 kitap ödünç alabilirsiniz.\n");
         } else {
             bookToBorrow.setStatus(false);
             borrowedBooks.add(bookToBorrow);
@@ -39,11 +39,15 @@ public class Member extends Guest implements MemberOperations {
             //Fiş oluşturma
             Receipt receipt = new Receipt(bookToBorrow, bookToBorrow.getPrice(),this);
             getLibrary().getReceipts().add(receipt);
-            System.out.println("Ödünç işlemi başarılı! Fiş:\n " + receipt);
-            System.out.println(getName() + " adlı üye " + bookToBorrow.getBookName() + " kitabını ödünç aldı.");
+            System.out.println("\n"+"Ödünç işlemi başarılı! \nFiş: " + receipt);
+            System.out.println(getName() + " adlı üye " + bookToBorrow.getBookName() + " kitabını ödünç aldı." + " güncel bütçe: "+ budget);
         }
+        System.out.println(getName() + " adlı üyenin sahip olduğu kitaplar: ");
+        for (Book book : borrowedBooks) {
+            System.out.print(book.getBookName() + ", ");
+        }
+        System.out.println("\n");
     }
-
     @Override
     public void returnBook(int bookId) {
         Book bookToReturn = null;
@@ -54,7 +58,7 @@ public class Member extends Guest implements MemberOperations {
             }
         }
         if (bookToReturn == null) {
-            System.out.println("İade etmek istediğiniz kitaba sahip değilsiniz.");
+            System.out.println("İade etmek istediğiniz kitaba sahip değilsiniz.\n");
         }
         else {
             bookToReturn.setStatus(true);
@@ -73,8 +77,13 @@ public class Member extends Guest implements MemberOperations {
             if (receiptToRemove != null) {
                 getLibrary().getReceipts().remove(receiptToRemove);
             }
-            System.out.println(getName() + " adlı üye " + bookToReturn.getBookName() + " kitabını geri verdi.");
+            System.out.println(getName() + " adlı üye " + bookToReturn.getBookName() + " kitabını geri verdi." + " güncel bütçe: "+ budget );
         }
+        System.out.println(getName() + " adlı üyenin sahip olduğu kitaplar: ");
+        for (Book book : borrowedBooks) {
+            System.out.print(book.getBookName() + ", ");
+        }
+        System.out.println("\n");
     }
     public List<Book> getBorrowedBooks() {
         return borrowedBooks;
@@ -83,8 +92,8 @@ public class Member extends Guest implements MemberOperations {
     @Override
     public String toString() {
         return "Member{" +
-                "borrowedBooks=" + borrowedBooks +
-                ", budget=" + budget +
+                "budget=" + budget +
+                ", borrowedBooks=" + borrowedBooks +
                 '}';
     }
 }

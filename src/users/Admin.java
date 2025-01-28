@@ -101,6 +101,7 @@ public class Admin extends Guest implements AdminOperations {
         String oldAuthor = bookToUpdate.getAuthor();
         //Güncellemeyi yap
         bookToUpdate.setBookName(updatedBookDetails.getBookName());
+        bookToUpdate.setPrice(updatedBookDetails.getPrice());
         bookToUpdate.setAuthor(updatedBookDetails.getAuthor());
         bookToUpdate.setCategory(updatedBookDetails.getCategory());
         bookToUpdate.setStatus(updatedBookDetails.getStatus());
