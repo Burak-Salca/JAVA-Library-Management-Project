@@ -5,11 +5,13 @@ import library.Book;
 import library.Library;
 import operations.AdminOperations;
 
+import java.util.Map;
+
 public class Admin extends Guest implements AdminOperations {
 
 
-    public Admin(String name, Library library) {
-        super(name, library);
+    public Admin( String name, Library library) {
+        super( name, library);
     }
 
     @Override
@@ -125,5 +127,19 @@ public class Admin extends Guest implements AdminOperations {
             library.getAuthors().remove(oldAuthor);
         }
         System.out.println("Kitap bilgileri başarıyla güncellendi: " + bookToUpdate);
+    }
+
+    @Override
+    public void showBorrowedBooks(Library library) {
+        if (library.getBorrowedBooks().isEmpty()) {
+            System.out.println("Henüz ödünç alınmış kitap yok.");
+        } else {
+            System.out.println("\n=== Ödünç Alınan Kitaplar ===");
+            for (Map.Entry<Book, Member> entry : library.getBorrowedBooks().entrySet()) {
+                Book book = entry.getKey();
+                Member member = entry.getValue();
+                System.out.println("Kitap: " + book.getBookName() + " | Üye: " + member.getName());
+            }
+        }
     }
 }

@@ -130,11 +130,12 @@ public class Main {
             System.out.println("2. Kitap Ekle");
             System.out.println("3. Kitap Sil");
             System.out.println("4. Kitap Bilgilerini Güncelle");
+            System.out.println("5. Ödünç Alınan Kitapları Görüntüle");
             System.out.println("0. Ana Menüye Dön");
             System.out.print("Seçiminiz: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Enter karakterini temizle
+            scanner.nextLine();
 
             if (choice == 0) break;
 
@@ -189,6 +190,9 @@ public class Main {
                     admin.updateBookInfo(library, bookIdToUpdate, updatedBookDetails);
                     System.out.println("\nMGüncel kitaplar:");
                     library.getBooks().forEach(System.out::println);
+                    break;
+                case 5:
+                    admin.showBorrowedBooks(library);
                     break;
                 default:
                     System.out.println("Geçersiz seçim!");

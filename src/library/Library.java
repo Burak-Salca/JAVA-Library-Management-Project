@@ -50,9 +50,4 @@ public class Library {
                 ", receipts=" + receipts +
                 '}';
     }
-
-    public void addBook(Book book) {
-
-    }
-
 }

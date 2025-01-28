@@ -11,7 +11,7 @@ public class Person {
     private String name;
     private Library library;
 
-    public Person( String name, Library library) {
+    public Person(  String name, Library library) {
         this.id = idCounter++;
         this.name = name;
         this.library = library;
@@ -19,10 +19,6 @@ public class Person {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
